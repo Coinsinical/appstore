@@ -1,7 +1,7 @@
 services:
   easynode:
     container_name: ${CONTAINER_NAME}
-    image: chaoszhu/easynode
+    image: chaoszhu/easynode:v3.5.1
     restart: always
     ports:
       - "${PANEL_APP_PORT_HTTP}:8082"
@@ -20,7 +20,7 @@ services:
 
   easynode-guacd:
     container_name: ${CONTAINER_NAME}-guacd
-    image: guacamole/guacd
+    image: guacamole/guacd:1.6.0
     restart: always
     expose:
       - "4822"

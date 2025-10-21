@@ -46,7 +46,7 @@
 
 `1Panel`计划任务类型`Shell 脚本`的计划任务框里，添加并执行以下命令，或者终端运行以下命令，
 ```shell
-git clone -b localApps https://github.com/Coinsinical/appstore /opt/1panel/resource/apps/local/appstore-localApps
+git clone -b dev https://github.com/Coinsinical/appstore /opt/1panel/resource/apps/local/appstore-localApps
 
 cp -rf /opt/1panel/resource/apps/local/appstore-localApps/apps/* /opt/1panel/resource/apps/local/
 
@@ -59,15 +59,15 @@ rm -rf /opt/1panel/resource/apps/local/appstore-localApps
 
 `1Panel`计划任务类型`Shell 脚本`的计划任务框里，添加并执行以下命令，或者终端运行以下命令
 ```shell
-wget -P /opt/1panel/resource/apps/local https://github.com/Coinsinical/appstore/archive/refs/heads/localApps.zip
+wget -P /opt/1panel/resource/apps/local https://github.com/Coinsinical/appstore/archive/refs/heads/dev.zip
 
-unzip -o -d /opt/1panel/resource/apps/local/ /opt/1panel/resource/apps/local/localApps.zip
+unzip -o -d /opt/1panel/resource/apps/local/ /opt/1panel/resource/apps/local/dev.zip
 
-cp -rf /opt/1panel/resource/apps/local/appstore-localApps/apps/* /opt/1panel/resource/apps/local/
+cp -rf /opt/1panel/resource/apps/local/appstore-dev/apps/* /opt/1panel/resource/apps/local/
 
-rm -rf /opt/1panel/resource/apps/local/appstore-localApps
+rm -rf /opt/1panel/resource/apps/local/appstore-dev
 
-rm -rf /opt/1panel/resource/apps/local/localApps.zip
+rm -rf /opt/1panel/resource/apps/local/dev.zip
 ```
 
 然后应用商店刷新本地应用即可。
