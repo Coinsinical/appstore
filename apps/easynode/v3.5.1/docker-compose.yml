@@ -1,0 +1,37 @@
+services:
+  easynode:
+    container_name: ${CONTAINER_NAME}
+    image: chaoszhu/easynode
+    restart: always
+    ports:
+      - "${PANEL_APP_PORT_HTTP}:8082"
+    volumes:
+      - ${DATA_PATH}/db:/easynode/app/db
+    environment:
+      - TZ=Asia/Shanghai
+      - DEBUG=0
+      - GUACD_HOST=${CONTAINER_NAME}-guacd
+      - GUACD_PORT=4822
+    depends_on:
+      easynode-guacd:
+        condition: service_healthy
+    networks:
+      - 1panel-network
+
+  easynode-guacd:
+    container_name: ${CONTAINER_NAME}-guacd
+    image: guacamole/guacd
+    restart: always
+    expose:
+      - "4822"
+    healthcheck:
+      test: ["CMD", "sh", "-c", "nc -z 127.0.0.1 4822"]
+      interval: 5s
+      timeout: 2s
+      retries: 10
+    networks:
+      - 1panel-network
+
+networks:
+  1panel-network:
+    external: true
