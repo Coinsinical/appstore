@@ -14,7 +14,7 @@
       "matchManagers": ["github-actions"],
       "enabled": false
     },
-	    {
+	{
       "matchDatasources": ["docker"],
       "matchPackageNames": ["chaoszhu/easynode"],
       "versionCompatibility": "^v(?<version>.*)$",
