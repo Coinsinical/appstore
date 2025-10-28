@@ -5,6 +5,10 @@
     "githubaction@githubaction.com"
   ],
   "rebaseWhen": "never",
+    "rebaseWhen": "never",
+  "ignorePaths": [
+    "apps/betterforward/**"
+  ],
   "packageRules": [
     {
       "packageNames": ["docker-compose"],

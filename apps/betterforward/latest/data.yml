@@ -1,0 +1,75 @@
+additionalProperties:
+  formFields:
+    - default: ""
+      edit: true
+      envKey: TOKEN
+      labelEn: Bot Token
+      labelZh: Telegram机器人Token
+      label:
+        en: Bot Token
+        zh: Telegram机器人Token
+        zh-Hant: Telegram 機器人Token
+        ja: ボットトークン
+        ko: 봇 토큰
+        ru: Токен бота
+        ms: Token Bot
+        pt-br: Token do Bot
+      required: true
+      type: text
+
+    - default: ""
+      edit: true
+      envKey: GROUP_ID
+      labelEn: Group ID
+      labelZh: Telegram群组 ID
+      label:
+        en: Group ID
+        zh: Telegram群组 ID
+        zh-Hant: Telegram 群組 ID
+        ja: グループID
+        ko: 그룹 ID
+        ru: ID группы
+        ms: ID Kumpulan
+        pt-br: ID do Grupo
+      required: true
+      type: text
+
+    - default: ""
+      edit: true
+      envKey: TG_API
+      labelEn: Telegram API (optional proxy)
+      labelZh: Telegram API（可选代理）
+      label:
+        en: Telegram API (optional proxy)
+        zh: Telegram API（可选代理）
+        zh-Hant: Telegram API（可選代理）
+        ja: Telegram API（任意のプロキシ）
+        ko: 텔레그램 API(선택적 프록시)
+        ru: API Telegram (необязательный прокси)
+        ms: API Telegram (proksi pilihan)
+        pt-br: API do Telegram (proxy opcional)
+      required: false
+      type: text
+
+    - default: "zh_CN"
+      envKey: LANGUAGE
+      labelEn: Application Language
+      labelZh: 应用语言
+      label:
+        en: Application Language
+        zh: 应用语言
+        zh-Hant: 應用語言
+        ja: アプリケーションの言語
+        ko: 애플리케이션 언어
+        ru: Язык приложения
+        ms: Bahasa Aplikasi
+        pt-br: Idioma do Aplicativo
+      required: true
+      type: select
+      values:
+        - label: English
+          value: "en_US"
+        - label: 中文
+          value: "zh_CN"
+        - label: 日本語
+          value: "ja_JP"

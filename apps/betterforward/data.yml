@@ -1,0 +1,33 @@
+name: BetterForward
+tags:
+  - 实用工具
+title: 使用“话题”功能实现的Telegram私聊机器人
+description: 使用“话题”功能实现的Telegram私聊机器人
+additionalProperties:
+  key: betterforward
+  name: BetterForward
+  tags:
+    - Tool
+  shortDescZh: 使用“话题”功能实现的Telegram私聊机器人
+  shortDescEn: Telegram private chat bot implemented using the 'Topics' feature
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  website: https://github.com/SideCloudGroup/BetterForward
+  github: https://github.com/SideCloudGroup/BetterForward
+  document: https://github.com/SideCloudGroup/BetterForward
+  description:
+    en: Telegram private chat bot implemented using the 'Topics' feature
+    zh: 使用“话题”功能实现的Telegram私聊机器人
+    zh-Hant: 使用「主題」功能實現的 Telegram 私聊機器人
+    ja: 「トピック」機能で実現した Telegram プライベートチャットボット
+    ms: Bot sembang peribadi Telegram yang dilaksanakan menggunakan ciri 'Topics'
+    pt-br: Bot de chat privado do Telegram implementado usando o recurso 'Tópicos'
+    ru: Приватный чат-бот Telegram, реализованный с использованием функции «Темы»
+    ko: '주제(Topics)' 기능으로 구현한 Telegram 개인 채팅 봇
+  architectures:
+    - amd64
+    - arm64
+    - arm/v6
+    - arm/v7

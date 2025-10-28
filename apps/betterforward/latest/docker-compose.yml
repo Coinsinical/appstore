@@ -1,0 +1,20 @@
+services:
+  betterforward:
+    container_name: ${CONTAINER_NAME}
+    image: pplulee/betterforward:latest
+    restart: always
+    environment:
+      - TOKEN=${TOKEN}
+      - GROUP_ID=${GROUP_ID}
+      - LANGUAGE=${LANGUAGE}
+      - TG_API=${TG_API}
+    volumes:
+      - ./data:/app/data
+    networks:
+      - 1panel-network
+    labels:  
+      createdBy: "Apps"
+
+networks:
+  1panel-network:
+    external: true
