@@ -1,7 +1,7 @@
 services:
   easynode:
     container_name: ${CONTAINER_NAME}
-    image: chaoszhu/easynode:v3.5.2
+    image: chaoszhu/easynode:v3.5.3
     restart: always
     ports:
       - "${PANEL_APP_PORT_HTTP}:8082"
