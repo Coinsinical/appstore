@@ -37,11 +37,11 @@ jobs:
           echo "$output" >> $GITHUB_OUTPUT
 
       - name: Commit and push
-        if: contains(steps.update.outputs.*, 'changed=true')
+        if: steps.update.outputs.changed == 'true'
         run: |
           app_name="${{ matrix.app }}"
-          current=$(echo "${{ steps.update.outputs.* }}" | grep -oP 'current=\K[^\s]+')
-          latest=$(echo "${{ steps.update.outputs.* }}" | grep -oP 'latest=\K[^\s]+')
+          current="${{ steps.update.outputs.current }}"
+          latest="${{ steps.update.outputs.latest }}"
           
           git add "apps/${app_name}/"
           git commit -m "chore(deps): update ${app_name} from ${current} to ${latest}"  --no-verify && git push || true

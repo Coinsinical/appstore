@@ -22,18 +22,17 @@ fi
 
 current_version=$(find apps/${app_name} -mindepth 1 -maxdepth 1 -type d | sort -rV | head -n 1 | cut -d "/" -f 3)
 # Output for GitHub Actions
-echo "current=${current_version}"
-echo "latest=${latest_version}"
-echo "repo=${repo}"
+echo "current=$CURRENT_VERSION" >> "$GITHUB_OUTPUT"
+echo "latest=$LATEST_VERSION"  >> "$GITHUB_OUTPUT"
 
 # Rename directory if version changed
 if [ "${current_version}" != "${latest_version}" ]; then
   if [[ ! -e "apps/${app_name}/${latest_version}" ]]; then
     mv "apps/${app_name}/${current_version}" "apps/${app_name}/${latest_version}"
-    echo "changed=true"
+    echo "changed=true" >> "$GITHUB_OUTPUT"
   else
-    echo "changed=false"
+    echo "changed=false" >> "$GITHUB_OUTPUT"
   fi
 else
-  echo "changed=false"
+  echo "changed=false" >> "$GITHUB_OUTPUT"
 fi
