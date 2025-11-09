@@ -33,8 +33,7 @@ jobs:
         id: update
         run: |
           chmod +x .github/workflows/app-update.sh
-          output=$(bash .github/workflows/app-update.sh "${{ matrix.app }}")
-          echo "$output" >> $GITHUB_OUTPUT
+          bash .github/workflows/app-update.sh "${{ matrix.app }}"
 
       - name: Commit and push
         if: steps.update.outputs.changed == 'true'
