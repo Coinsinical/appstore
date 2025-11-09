@@ -20,7 +20,7 @@ if [[ -z "${latest_version}" || "${latest_version}" == "null" ]]; then
   exit 1
 fi
 
-current_version=$(find apps/${app_name}/* -mindepth 1 -maxdepth 1 -type d | sort -rV | head -n 1 | cut -d "/" -f 3)
+current_version=$(find apps/${app_name} -mindepth 1 -maxdepth 1 -type d | sort -rV | head -n 1 | cut -d "/" -f 3)
 # Output for GitHub Actions
 echo "current=${current_version}"
 echo "latest=${latest_version}"
