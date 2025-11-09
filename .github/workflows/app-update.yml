@@ -1,0 +1,47 @@
+name: Update app versions
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-app-version:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [betterforward]
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}	
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Configure repo
+        run: |
+          git config --local user.email "githubaction@githubaction.com"
+          git config --local user.name "github-action update-app-version"
+
+      - name: Run update
+        id: update
+        run: |
+          chmod +x .github/workflows/app-update.sh
+          output=$(bash .github/workflows/app-update.sh "${{ matrix.app }}")
+          echo "$output" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: contains(steps.update.outputs.*, 'changed=true')
+        run: |
+          app_name="${{ matrix.app }}"
+          current=$(echo "${{ steps.update.outputs.* }}" | grep -oP 'current=\K[^\s]+')
+          latest=$(echo "${{ steps.update.outputs.* }}" | grep -oP 'latest=\K[^\s]+')
+          
+          git add "apps/${app_name}/"
+          git commit -m "chore(deps): update ${app_name} from ${current} to ${latest}"  --no-verify && git push || true
