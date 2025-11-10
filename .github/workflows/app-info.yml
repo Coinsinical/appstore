@@ -1,0 +1,41 @@
+name: Update Apps Info
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+    paths:
+      - 'apps/*/data.yml'
+      - 'apps/*/*/docker-compose.yml'
+
+jobs:
+  update-apps-info:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: dev
+          fetch-depth: 0
+          
+      - name: Configure repo
+        run: |
+          git config --local user.email "githubaction@githubaction.com"
+          git config --local user.name "github-action update-app-info"
+
+      - name: update app info
+        run: |
+          chmod +x .github/workflows/app-info.sh
+          bash .github/workflows/app-info.sh README.md apps
+
+      - name: Commit changes
+        run: |
+          git add README.md
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: update apps info [skip ci]"
+          git push

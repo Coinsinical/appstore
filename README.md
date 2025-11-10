@@ -12,7 +12,7 @@
   </a>
 </p>
 
-这是一个由社区驱动和维护的、**非官方**的 [1Panel](https://github.com/1Panel-dev/1Panel) 应用仓库，适配1Panel V2，旨在为 1Panel 用户提供更多官方商店之外的应用选择和优化版本。
+这是一个由社区驱动和维护的、**非官方**的 [1Panel](https://github.com/1Panel-dev/1Panel) 应用仓库，适配1Panel V2，旨在为 1Panel 用户提供更多官方商店之外的应用选择和优化版本。如果本仓库对您有帮助，欢迎 Star!
 
 ---
 
@@ -75,9 +75,10 @@ rm -rf /opt/1panel/resource/apps/local/dev.zip
 ---
 
 ## 📋 应用列表
-| 应用名称 | 描述 | 版本 | 类型 | 维护者 |
+<!-- apps:table:start -->
+| 应用名称 | key | 描述 | 版本 | 标签 |
 | :--- | :--- | :--- | :--- | :--- |
-
+<!-- apps:table:end -->
 ---
 ## 🐛 问题反馈
 
