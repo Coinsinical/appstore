@@ -77,7 +77,9 @@ rm -rf /opt/1panel/resource/apps/local/dev.zip
 ## 📋 应用列表
 <!-- apps:table:start -->
 | 应用名称 | key | 描述 | 版本 | 标签 |
-| :--- | :--- | :--- | :--- | :--- |
+|---|---|---|---|---|
+|[BetterForward](https://github.com/SideCloudGroup/BetterForward)|betterforward|使用“话题”功能实现的Telegram私聊机器人|1.2.5|实用工具|
+|[EasyNode](https://easynode.chaoszhu.com)|easynode|一个多功能Linux服务器WEB终端面板|3.5.3|实用工具|
 <!-- apps:table:end -->
 ---
 ## 🐛 问题反馈
