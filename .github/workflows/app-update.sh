@@ -8,13 +8,11 @@ if [ -n "${GITHUB_TOKEN:-}" ]; then
   auth_header=(-H "Authorization: token ${GITHUB_TOKEN:-}")
 fi
 
-# Try releases/latest first
-latest_version=$(curl -fsSL "${auth_header[@]}" "https://api.github.com/repos/${repo}/releases/latest" | jq -r '.tag_name' 2>/dev/null)
-if [ -z "$latest_version" ] || [ "$latest_version" = "null" ]; then
-  # Fallback to tags list (first tag)
-  latest_version=$(curl -fsSL "${auth_header[@]}" "https://api.github.com/repos/${repo}/tags?per_page=1" | jq -r '.[0].name' 2>/dev/null)
-fi
-latest_version="${latest_version#v}"
+release=$(curl -fsSL "${auth_header[@]}" "https://api.github.com/repos/${repo}/releases/latest" | jq -r '.tag_name' 2>/dev/null)
+tag=$(curl -fsSL "${auth_header[@]}" "https://api.github.com/repos/${repo}/tags?per_page=1" | jq -r '.[0].name' 2>/dev/null)
+release="${release#v}"
+tag="${tag#v}"
+latest_version=$(printf "%s\n%s\n" "$release" "$tag" | grep -v -e '^$' -e '^null$' | sort -V -u | tail -n1)
 if [[ -z "${latest_version}" || "${latest_version}" == "null" ]]; then
   echo "Error: could not determine latest version for ${repo}" >&2
   exit 1
