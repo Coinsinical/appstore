@@ -25,10 +25,27 @@ jobs:
           git config --local user.email "githubaction@githubaction.com"
           git config --local user.name "github-action update-app-info"
 
-      - name: update app info
+      - name: Generate App List Table
+        id: generate_table
         run: |
           chmod +x .github/workflows/app-info.sh
-          bash .github/workflows/app-info.sh README.md apps
+          {
+            echo "table_content<<EOF"
+            .github/workflows/app-info.sh apps
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Inject Table into README.md
+        env:
+          TABLE: ${{ steps.generate_table.outputs.table_content }}
+        run: |
+          README="README.md"
+          tmp="${README}.tmp"
+          awk -v tbl="$TABLE" '
+            /<!--[ ]*apps:table:start[ ]*-->/ { print; print tbl; skip=1; next }
+            /<!--[ ]*apps:table:end[ ]*-->/ { skip=0 }
+            !skip
+          ' "$README" > "$tmp" && mv "$tmp" "$README"
 
       - name: Commit changes
         run: |

@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-readme="${1:-README.md}"
-apps_root="${2:-apps}"
+apps_root="${1:-apps}"
 
 # Generate Apps JSON array
 apps_json="$(
@@ -57,11 +56,4 @@ table_content="$(
     + "|" + ((.tags // [] | if length==0 then "其他" else join(", ") end)) + "|"
   '
 )"
-
-# Inject into README
-tmp="${readme}.tmp"
-awk -v tbl="$table_content" '
-  /<!--[ ]*apps:table:start[ ]*-->/ { print; print tbl; skip=1; next }
-  /<!--[ ]*apps:table:end[ ]*-->/ { skip=0 }
-  !skip
-' "$readme" > "$tmp" && mv "$tmp" "$readme"
+echo "$table_content"
