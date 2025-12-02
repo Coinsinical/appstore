@@ -59,8 +59,9 @@ jobs:
 
             old_logs_content="$(printf '%s\n' "$old_body" | awk -v s="$section_logs" '
               BEGIN{found=0}
-              \$0==s{found=1; next}
-              found && /^### /{exit}
+              { gsub(/\r$/, "") }
+              \$0==s{found=1; next}                 
+              found && /^### /{exit}               
               found{print}
             ')"
             {
