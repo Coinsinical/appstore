@@ -55,7 +55,7 @@ rm -rf /opt/1panel/resource/apps/local/appstore-localApps
 
 然后应用商店刷新本地应用即可。
 
-#### 方法二：使用压缩包方式获取应用
+### 方法二：使用压缩包方式获取应用
 
 `1Panel`计划任务类型`Shell 脚本`的计划任务框里，添加并执行以下命令，或者终端运行以下命令
 ```shell
@@ -72,6 +72,20 @@ rm -rf /opt/1panel/resource/apps/local/dev.zip
 
 然后应用商店刷新本地应用即可。
 
+### 方法三：使用 Releases 包获取应用
+  ```shell
+  wget -O /opt/1panel/resource/apps/local/apps.zip https://github.com/Coinsinical/appstore/releases/latest/download/apps.zip
+
+  unzip -o -d /opt/1panel/resource/apps/local/ /opt/1panel/resource/apps/local/apps.zip
+
+  cp -rf /opt/1panel/resource/apps/local/apps/* /opt/1panel/resource/apps/local/
+
+  rm -rf /opt/1panel/resource/apps/local/apps
+
+  rm -rf /opt/1panel/resource/apps/local/apps.zip
+  ```
+  然后应用商店刷新本地应用即可。
+
 ---
 
 ## 📋 应用列表
@@ -81,6 +95,23 @@ rm -rf /opt/1panel/resource/apps/local/dev.zip
 |[BetterForward](https://github.com/SideCloudGroup/BetterForward)|betterforward|使用“话题”功能实现的Telegram私聊机器人|2.0.4|实用工具|
 |[EasyNode](https://easynode.chaoszhu.com)|easynode|一个多功能Linux服务器WEB终端面板|3.5.4|实用工具|
 <!-- apps:table:end -->
+
+---
+
+## 💡 Tips
+
+- 若需要安装特定版本应用，请前往 Releases 页面，根据Release Note应用列表获取包含该版本应用程序的压缩包并解压至1Panel本地应用目录后应用商店刷新本地应用即可
+```shell
+  wget -O /opt/1panel/resource/apps/local/apps.zip https://github.com/Coinsinical/appstore/releases/download/<tag>/apps.zip  ## <tag>部分请自行替换为对应的版本号
+
+  unzip -o -d /opt/1panel/resource/apps/local/ /opt/1panel/resource/apps/local/apps.zip
+
+  cp -rn /opt/1panel/resource/apps/local/apps/* /opt/1panel/resource/apps/local/
+
+  rm -rf /opt/1panel/resource/apps/local/apps
+
+  rm -rf /opt/1panel/resource/apps/local/apps.zip
+```
 ---
 ## 🐛 问题反馈
 
