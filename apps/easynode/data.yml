@@ -10,7 +10,16 @@ additionalProperties:
     - Tool
   shortDescZh: 一个多功能Linux服务器WEB终端面板
   shortDescEn: A multifunctional Linux server web terminal panel
-  type: tool
+  description:
+    en: A multifunctional Linux server WEB terminal panel
+    zh: 一个多功能Linux服务器WEB终端面板
+    zh-Hant: 一個多功能Linux伺服器WEB終端面板
+    ja: 多機能LinuxサーバーWEBターミナルパネル
+    ms: Panel terminal WEB pelayan Linux pelbagai fungsi
+    pt-br: Um painel de terminal WEB para servidores Linux multifuncional
+    ru: Многофункциональная WEB-терминальная панель для серверов Linux
+    ko: 다기능 Linux 서버 WEB 터미널 패널
+  type: website
   crossVersionUpdate: true
   limit: 0
   recommend: 0

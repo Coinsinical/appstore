@@ -5,13 +5,15 @@ additionalProperties:
       envKey: PANEL_APP_PORT_HTTP
       labelEn: Port
       labelZh: 端口
+      label:
+        en: Port
+        ja: ポート
+        ms: Port
+        pt-br: Porta
+        ru: порт
+        ko: 포트
+        zh: 端口
+        zh-Hant: 連接埠
       required: true
       rule: paramPort
       type: number
-    - default: "./data"
-      edit: true
-      envKey: DATA_PATH
-      labelEn: Data Path
-      labelZh: 数据路径
-      required: true
-      type: text

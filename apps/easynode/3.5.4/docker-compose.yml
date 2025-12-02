@@ -6,7 +6,7 @@ services:
     ports:
       - "${PANEL_APP_PORT_HTTP}:8082"
     volumes:
-      - ${DATA_PATH}/db:/easynode/app/db
+      - ./data/db:/easynode/app/db
     environment:
       - TZ=Asia/Shanghai
       - DEBUG=0
@@ -17,6 +17,8 @@ services:
         condition: service_healthy
     networks:
       - 1panel-network
+    labels:
+      createdBy: "Apps"
 
   easynode-guacd:
     container_name: ${CONTAINER_NAME}-guacd
@@ -31,6 +33,8 @@ services:
       retries: 10
     networks:
       - 1panel-network
+    labels:
+      createdBy: "Apps"
 
 networks:
   1panel-network:
