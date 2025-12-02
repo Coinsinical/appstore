@@ -35,13 +35,15 @@ jobs:
 
           git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'apps/*/*/docker-compose.yml' | while read -r file; do
             [ ! -f "$file" ] && continue
-
+            
+            app=$(echo "$file" | cut -d'/' -f 2)
             version=$(echo "$file" | cut -d'/' -f 3)
             
             yq eval '.services[].image' "$file" | sort -u | while read -r src; do
               [[ -z "$src" || "$src" == "null" ]] && continue
 
-              source_repo_name="${src%:*}"
+              repo_ref="${src%:*}"             
+              image_name="${repo_ref##*/}"
 
               if [[ "$src" != *":"* ]] || [[ "$src" == *":latest" ]]; then
                 target_tag="$version"
@@ -49,7 +51,7 @@ jobs:
                 target_tag="${src##*:}"
               fi
               
-              target="${{ env.REGISTRY }}/$owner/$source_repo_name:$target_tag"
+              target="${{ env.REGISTRY }}/$owner/$app/$image_name:$target_tag"
               
               docker pull "$src"
               docker tag "$src" "$target"
