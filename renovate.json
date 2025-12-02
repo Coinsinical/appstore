@@ -23,6 +23,12 @@
       "matchPackageNames": ["chaoszhu/easynode"],
       "versionCompatibility": "^v(?<version>.*)$",
       "versioning": "semver"
+    },
+	    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/lukegus/termix"],
+      "versionCompatibility": "^release-(?<version>.*)$",
+      "versioning": "semver"
     }
   ],
   "prCreation": "immediate"

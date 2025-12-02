@@ -1,0 +1,31 @@
+name: Termix
+tags:
+  - 实用工具
+title: 开源免费自托管一体化服务器管理平台
+description: 开源免费自托管一体化服务器管理平台
+additionalProperties:
+  key: termix
+  name: Termix
+  tags:
+    - Tool
+  shortDescZh: 开源免费自托管一体化服务器管理平台
+  shortDescEn: open-source, forever-free, self-hosted all-in-one server management platform
+  description:
+    en: Open-source free self-hosted all-in-one server management platform
+    zh: 开源免费自托管一体化服务器管理平台
+    zh-Hant: 開源免費自託管一體化伺服器管理平台
+    ja: オープンソースで無料のセルフホスティング統合サーバー管理プラットフォーム
+    ms: Platform pengurusan pelayan bersepadu sumber terbuka percuma dan hos sendiri
+    pt-br: Plataforma de gerenciamento de servidores tudo-em-um de código aberto gratuito e auto-hospedado
+    ru: Открытая бесплатная саморазмещаемая универсальная платформа управления серверами
+    ko: 오픈소스 무료 셀프호스팅 올인원 서버 관리 플랫폼
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  website: https://docs.termix.site/
+  github: https://github.com/Termix-SSH/Termix
+  document: https://docs.termix.site/
+  architectures:
+    - amd64
+    - arm64
