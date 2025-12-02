@@ -39,6 +39,15 @@
 * ✅ **官方暂未收录的应用**：经过测试、有一定使用价值，但尚未被 1Panel 官方商店收录的开源应用。
 * 🚀 **官方应用的优化版**：针对 1Panel 官方商店中已有的应用，提供的配置优化、功能增强或特定场景的修改版本。
 
+## 📋 应用列表
+<!-- apps:table:start -->
+| 应用名称 | key | 描述 | 版本 | 标签 |
+|---|---|---|---|---|
+|[BetterForward](https://github.com/SideCloudGroup/BetterForward)|betterforward|使用“话题”功能实现的Telegram私聊机器人|2.0.4|实用工具|
+|[EasyNode](https://easynode.chaoszhu.com)|easynode|一个多功能Linux服务器WEB终端面板|3.5.4|实用工具|
+|[Termix](https://docs.termix.site/)|termix|开源免费自托管一体化服务器管理平台|release-1.9.0|实用工具|
+<!-- apps:table:end -->
+
 ---
 
 ## ⚙️ 如何使用
@@ -85,17 +94,6 @@ rm -rf /opt/1panel/resource/apps/local/dev.zip
   rm -rf /opt/1panel/resource/apps/local/apps.zip
   ```
   然后应用商店刷新本地应用即可。
-
----
-
-## 📋 应用列表
-<!-- apps:table:start -->
-| 应用名称 | key | 描述 | 版本 | 标签 |
-|---|---|---|---|---|
-|[BetterForward](https://github.com/SideCloudGroup/BetterForward)|betterforward|使用“话题”功能实现的Telegram私聊机器人|2.0.4|实用工具|
-|[EasyNode](https://easynode.chaoszhu.com)|easynode|一个多功能Linux服务器WEB终端面板|3.5.4|实用工具|
-|[Termix](https://docs.termix.site/)|termix|开源免费自托管一体化服务器管理平台|release-1.9.0|实用工具|
-<!-- apps:table:end -->
 
 ---
 
@@ -146,6 +144,6 @@ rm -rf /opt/1panel/resource/apps/local/dev.zip
 
 ## ⚖️ 许可证 (License)
 
-本仓库（指相关维护脚本）采用 [MIT License](LICENSE) 授权。
+本仓库（指相关维护脚本）采用 [GPL-3.0 License](LICENSE) 授权。
 
 *注意：仓库中收录的各个独立应用均遵循其各自的开源许可证。*
