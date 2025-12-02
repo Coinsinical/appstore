@@ -42,26 +42,20 @@ jobs:
           APP_TABLE: ${{ steps.app_table.outputs.table_content }}
         run: |
           echo "Target Tag: $TAG"
-
           section_apps="### 📦 应用列表 (App List)"
           section_logs="### 📝 更新日志 (Update Log)"
-
           commit_subject="$(printf '%s' "$COMMIT_MSG" | head -n1)"
           new_log_entry="- $commit_subject"
-
           body_file="$(mktemp)"
-
           if gh release view "$TAG" > /dev/null 2>&1; then
             echo "Release $TAG exists. Merging content..."
-
             old_body="$(gh release view "$TAG" --json body -q .body 2>/dev/null || true)"
             [ "$old_body" = "null" ] && old_body=""
-
             old_logs_content="$(printf '%s\n' "$old_body" | awk -v s="$section_logs" '
               BEGIN{found=0}
               { gsub(/\r$/, "") }
-              \$0==s{found=1; next}                 
-              found && /^### /{exit}               
+              $0==s{found=1; next}
+              found && /^### /{exit}
               found{print}
             ')"
             {
@@ -73,19 +67,16 @@ jobs:
               fi
               printf "%s\n" "$new_log_entry"
             } > "$body_file"
-
             gh release edit "$TAG" --notes-file "$body_file"
             gh release upload "$TAG" apps.zip --clobber
-
           else
             echo "Release $TAG does not exist. Creating new..."
-
             {
               printf "%s\n\n" "$section_apps"
               printf "%s\n\n" "$APP_TABLE"
               printf "%s\n\n" "$section_logs"
               printf "%s\n" "$new_log_entry"
             } > "$body_file"
-
             gh release create "$TAG" apps.zip --title "Release $TAG" --notes-file "$body_file"
           fi
+
