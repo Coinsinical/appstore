@@ -10,8 +10,8 @@ fi
 
 release=$(curl -fsSL "${auth_header[@]}" "https://api.github.com/repos/${repo}/releases/latest" | jq -r '.tag_name' 2>/dev/null)
 tag=$(curl -fsSL "${auth_header[@]}" "https://api.github.com/repos/${repo}/tags?per_page=1" | jq -r '.[0].name' 2>/dev/null)
-release="${release#v}"
-tag="${tag#v}"
+release=$(echo "$release" | sed 's/^v//; s/,/./g')
+tag=$(echo "$tag" | sed 's/^v//; s/_/./g; s/,/./g')
 latest_version=$(printf "%s\n%s\n" "$release" "$tag" | grep -v -e '^$' -e '^null$' | sort -V -u | tail -n1)
 if [[ -z "${latest_version}" || "${latest_version}" == "null" ]]; then
   echo "Error: could not determine latest version for ${repo}" >&2
