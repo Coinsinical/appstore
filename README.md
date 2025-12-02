@@ -94,6 +94,7 @@ rm -rf /opt/1panel/resource/apps/local/dev.zip
 |---|---|---|---|---|
 |[BetterForward](https://github.com/SideCloudGroup/BetterForward)|betterforward|使用“话题”功能实现的Telegram私聊机器人|2.0.4|实用工具|
 |[EasyNode](https://easynode.chaoszhu.com)|easynode|一个多功能Linux服务器WEB终端面板|3.5.4|实用工具|
+|[Termix](https://docs.termix.site/)|termix|开源免费自托管一体化服务器管理平台|release-1.9.0|实用工具|
 <!-- apps:table:end -->
 
 ---
