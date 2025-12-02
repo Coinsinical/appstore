@@ -8,6 +8,7 @@ services:
       - GROUP_ID=${GROUP_ID}
       - LANGUAGE=${LANGUAGE}
       - TG_API=${TG_API}
+      - WORKER=${WORKER}
     volumes:
       - ./data:/app/data
     networks:

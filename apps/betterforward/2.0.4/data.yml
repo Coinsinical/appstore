@@ -50,6 +50,23 @@ additionalProperties:
         pt-br: API do Telegram (proxy opcional)
       required: false
       type: text
+      
+    - default: 2
+      edit: true
+      envKey: WORKER
+      labelEn: Worker Thread Count
+      labelZh: 工作线程数量
+      label:
+        en: Worker Thread Count
+        zh: 工作线程数量
+        zh-Hant: 工作線程數量
+        ja: ワーカースレッド数
+        ko: 작업 스레드 수
+        ru: Количество рабочих потоков
+        ms: Bilangan Thread Pekerja
+        pt-br: Contagem de Threads de Trabalho
+      required: true
+      type: number
 
     - default: "zh_CN"
       envKey: LANGUAGE
